@@ -1,0 +1,59 @@
+===============================================================PG ADMIN=============================================================================================
+
+==============================================================DATABASE CREATION=====================================================================================
+1. Open PgAdmin
+2. Expand "servers"
+3. Click "Localhost", it will ask for password. (ex: Bhuva1102)
+4. Right click "Databases", then click "Create"-> "Database"
+5. Fill the fields:
+	Database: talksy
+	Owner: leave as postgres (default)
+6. Click Save
+
+```````🎉 Database created successfully.`````````````
+
+==============================================================TABLE CREATION=======================================================================================
+1. Open Query Tool
+
+	1.1 Expand:
+	  Databases → talksy
+	1.2 Right-click on talksy
+	1.3 Click Query Tool
+
+```````🎉 This opens an SQL editor.`````````````
+
+2. Create "users" Table
+
+	2.1 Paste this SQL into the Query Tool:
+		CREATE TABLE users (
+		  id BIGSERIAL PRIMARY KEY,
+		  username VARCHAR(100) UNIQUE NOT NULL,
+		  email VARCHAR(150) UNIQUE NOT NULL,
+		  password_hash VARCHAR(255) NOT NULL,
+		  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+		);
+
+	2.2 Now click the ▶ Execute button (or press F5).
+	2.3You should see:
+```````✅ Query returned successfully````````````
+
+===========================================================Verify Table Creation====================================================================================
+In left panel:
+
+1. Look at the LEFT panel and follow this path:
+	Servers
+	 └── PostgreSQL xx
+	     └── Databases
+		 └── talksy
+		     └── Schemas
+		         └── public
+		             └── Tables
+
+
+2. Right-click on "Tables"
+3. Click Refresh
+4. You should then see:
+
+```````users```````
+
+```````🎉 Your database is READY.```````

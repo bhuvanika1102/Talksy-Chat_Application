@@ -1,0 +1,6 @@
+# Ignore all node_modules folders
+node_modules/
+
+# Or explicitly (optional)
+frontend/node_modules/
+backend/node_modules/
