@@ -47,6 +47,9 @@ const Login = () => {
         >
           Login
         </Button>
+        <Typography className="login-footer">
+          <a href="/forgot-password">Forgot password?</a>
+        </Typography>
 
         <Typography variant="body2" className="login-footer">
           Don't have an account? <a href="/register">Register</a>
