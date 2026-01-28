@@ -1,0 +1,54 @@
+.profile-setup-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+  padding: 1rem;
+}
+
+.profile-setup-card {
+  max-width: 450px;
+  width: 100%;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.profile-setup-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.profile-setup-subtitle {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.avatar-upload {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.avatar-input {
+  display: none;
+}
+
+.avatar-label {
+  display: block;
+  margin-top: 0.5rem;
+  color: #1976d2;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.profile-setup-button {
+  margin-top: 1rem;
+  background-color: #1976d2;
+}
+
+.profile-setup-button:hover {
+  background-color: #115293;
+}
