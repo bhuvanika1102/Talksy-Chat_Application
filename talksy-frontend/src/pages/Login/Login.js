@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Typography } from "@mui/material";
 import TextInput from "../../components/TextInput";
 import { loginUser } from "../../services/auth.service";
-import { toast } from "react-toastify"; // import toast
+import { toast } from "react-toastify";
 import "./Login.css";
 
 const Login = () => {
@@ -14,9 +14,9 @@ const Login = () => {
   const handleSubmit = async () => {
     try {
       await loginUser(form);
-      toast.success("Login successful!"); // ✅ show success toast
+      toast.success("Login successful!");
     } catch (err) {
-      toast.error("Login failed! Check your credentials."); // ✅ show error toast
+      toast.error("Login failed! Check your credentials.");
     }
   };
 

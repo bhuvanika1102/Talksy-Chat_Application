@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Typography } from "@mui/material";
 import TextInput from "../../components/TextInput";
 import { registerUser } from "../../services/auth.service";
-import { toast } from "react-toastify"; // import toast
+import { toast } from "react-toastify";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 
