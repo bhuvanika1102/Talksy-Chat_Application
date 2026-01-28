@@ -3,10 +3,9 @@ const cors = require("cors");
 
 const app = express();
 
-/* ✅ CORS FIX */
 app.use(
   cors({
-    origin: "http://localhost:3000", // frontend
+    origin: "http://localhost:3000", 
     credentials: true,
   })
 );
