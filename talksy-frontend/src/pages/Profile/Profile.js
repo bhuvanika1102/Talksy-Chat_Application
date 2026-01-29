@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Avatar, Typography, CircularProgress } from "@mui/material";
 import { getUserProfile } from "../../services/user.service";
+import Footer from "../../pages/Footer/Footer";
 import "./Profile.css";
 
 const Profile = () => {
@@ -17,6 +18,7 @@ const Profile = () => {
   if (loading) return <CircularProgress className="loader" />;
 
   return (
+    <>
     <div className="profile-container">
       <div className="profile-card">
         <Avatar src={user.avatarUrl} sx={{ width: 120, height: 120 }} />
@@ -34,6 +36,8 @@ const Profile = () => {
         </Typography>
       </div>
     </div>
+     <Footer />
+     </>
   );
 };
 
