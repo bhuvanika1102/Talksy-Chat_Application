@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 
 const authService = require("../services/auth.service");
 const jwtConfig = require("../config/jwt");
+const transporter = require("../config/mail");
 
 /* ================= REGISTER ================= */
 exports.register = async (req, res) => {
@@ -94,7 +95,21 @@ exports.forgotPassword = async (req, res) => {
 
     // TEMP (later send email)
     console.log("RESET LINK:", resetLink);
-
+    const transporter = require("../config/mail");
+    console.log("Transporter type:", typeof transporter);
+    console.log("sendMail exists:", typeof transporter.sendMail);
+    await transporter.sendMail({
+      from: `"Talksy Support" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: "Reset your Talksy password",
+      html: `
+        <p>You requested a password reset.</p>
+        <p>Click the link below to reset your password:</p>
+        <a href="${resetLink}">${resetLink}</a>
+        <p>This link expires in 15 minutes.</p>
+      `,
+    });
+    
     res.json({ message: "Reset link sent to email" });
   } catch (err) {
     console.error(err);
