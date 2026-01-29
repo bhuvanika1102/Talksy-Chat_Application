@@ -3,7 +3,7 @@ const router = express.Router();
 
 const userController = require("../controllers/user.controller");
 const authMiddleware = require("../middleware/auth.middleware");
-const upload = require("../middleware/upload"); // multer config
+const upload = require("../middleware/upload");
 
 router.post(
   "/profile-setup",

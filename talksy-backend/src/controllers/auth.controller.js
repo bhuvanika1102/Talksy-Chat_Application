@@ -1,12 +1,10 @@
 const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
 const authService = require("../services/auth.service");
 const jwtConfig = require("../config/jwt");
 const transporter = require("../config/mail");
 
-/* ================= REGISTER ================= */
 exports.register = async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -23,7 +21,7 @@ exports.register = async (req, res) => {
     const passwordHash = await bcrypt.hash(password, 10);
     const userId = await authService.createUser(username, email, passwordHash);
 
-    // ✅ CREATE JWT AFTER REGISTER
+    //CREATE JWT AFTER REGISTER
     const token = jwt.sign(
       { id: userId, email },
       jwtConfig.secret,
@@ -40,7 +38,6 @@ exports.register = async (req, res) => {
   }
 };
 
-/* ================= LOGIN ================= */
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -75,7 +72,6 @@ exports.login = async (req, res) => {
   }
 };
 
-/* ================= FORGOT PASSWORD ================= */
 exports.forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
@@ -92,12 +88,7 @@ exports.forgotPassword = async (req, res) => {
     await authService.saveResetToken(user.id, resetToken, expiry);
 
     const resetLink = `http://localhost:3000/reset-password?token=${resetToken}`;
-
-    // TEMP (later send email)
-    console.log("RESET LINK:", resetLink);
     const transporter = require("../config/mail");
-    console.log("Transporter type:", typeof transporter);
-    console.log("sendMail exists:", typeof transporter.sendMail);
     await transporter.sendMail({
       from: `"Talksy Support" <${process.env.EMAIL_USER}>`,
       to: email,
@@ -117,7 +108,6 @@ exports.forgotPassword = async (req, res) => {
   }
 };
 
-/* ================= RESET PASSWORD ================= */
 exports.resetPassword = async (req, res) => {
   try {
     const { token, password } = req.body;
