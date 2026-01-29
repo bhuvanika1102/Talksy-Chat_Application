@@ -5,7 +5,10 @@ exports.setupProfile = async (req, res) => {
     const userId = req.user.id;
     const { displayName, bio } = req.body;
 
-    const avatarUrl = req.file ? `/uploads/${req.file.filename}` : null;
+    // build avatar URL only if file uploaded
+    const avatarUrl = req.file
+      ? `${process.env.BACKEND_URL}/uploads/${req.file.filename}`
+      : null;
 
     await db.query(
       `
@@ -25,6 +28,7 @@ exports.setupProfile = async (req, res) => {
     res.status(500).json({ message: "Profile update failed" });
   }
 };
+
 
 exports.getProfile = async (req, res) => {
   try {

@@ -1,18 +1,21 @@
 const express = require("express");
 const router = express.Router();
-const authMiddleware = require("../middleware/auth.middleware");
-const multer = require("multer");
-const { setupProfile, getProfile } = require("../controllers/user.controller");
 
-const upload = multer({ dest: "uploads/" });
+const userController = require("../controllers/user.controller");
+const authMiddleware = require("../middleware/auth.middleware");
+const upload = require("../middleware/upload"); // multer config
 
 router.post(
   "/profile-setup",
   authMiddleware,
   upload.single("avatar"),
-  setupProfile
+  userController.setupProfile
 );
 
-router.get("/profile", authMiddleware, getProfile);
+router.get(
+  "/profile",
+  authMiddleware,
+  userController.getProfile
+);
 
 module.exports = router;
