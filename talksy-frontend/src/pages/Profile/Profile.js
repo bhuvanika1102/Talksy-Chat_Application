@@ -19,25 +19,30 @@ const Profile = () => {
 
   return (
     <>
-    <div className="profile-container">
-      <div className="profile-card">
-        <Avatar src={user.avatarUrl} sx={{ width: 120, height: 120 }} />
+      <div className="profile-container">
+        <div className="profile-card">
+          <div className="avatar-wrapper">
+            <Avatar src={user.avatarUrl} className="profile-avatar" />
+            <span className="online-dot" />
+          </div>
 
-        <Typography variant="h5" className="profile-name">
-          {user.displayName}
-        </Typography>
+          <Typography variant="h5" className="profile-name">
+            {user.displayName}
+          </Typography>
 
-        <Typography variant="subtitle1" className="profile-email">
-          {user.email}
-        </Typography>
+          <Typography variant="subtitle2" className="profile-email">
+            {user.email}
+          </Typography>
 
-        <Typography className="profile-bio">
-          {user.bio || "No bio added"}
-        </Typography>
+          <div className="profile-divider" />
+
+          <Typography className="profile-bio">
+            “{user.bio || "No bio added"}”
+          </Typography>
+        </div>
       </div>
-    </div>
-     <Footer />
-     </>
+      <Footer />
+    </>
   );
 };
 

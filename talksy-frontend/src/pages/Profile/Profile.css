@@ -1,34 +1,33 @@
 .profile-container {
   min-height: 100vh;
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 1rem 4rem;
-  background-image:
-    radial-gradient(circle at left,
-      rgba(0, 0, 0, 0.35),
-      rgba(0, 0, 0, 0.85)),
+  padding-bottom: 90px;
+  background:
+    linear-gradient(to right,
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.25)),
     url("../../assets/images/4.jpg");
   background-size: cover;
-  background-position: 35% center;
-  background-repeat: no-repeat;
-  padding-bottom: 80px; 
-  background-color: #f0f2f5;
-  justify-content: center;
+  background-position: center;
 }
 
+
 .profile-card {
-  max-width: 420px;
   width: 100%;
-  padding: 2.6rem;
-  border-radius: 1.4rem;
-  background: rgba(255, 248, 240, 0.96);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
-  margin-left: auto;
-  margin-right: 6%;
+  max-width: 420px;
+  padding: 2.8rem 2.4rem;
+  border-radius: 1.6rem;
+  background: rgba(255, 248, 240, 0.95);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
   text-align: center;
-  animation: fadeUp 0.6s ease-out;
+  animation: floatUp 0.7s ease-out;
 }
+
 
 .profile-card .MuiAvatar-root {
   margin: 0 auto;
@@ -85,5 +84,90 @@
 
   .profile-card {
     margin-right: 0;
+  }
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.profile-avatar {
+  width: 120px !important;
+  height: 120px !important;
+  border-radius: 50%;
+  padding: 4px;
+  background:
+    linear-gradient(135deg, #ff8a00, #e52e71);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.profile-avatar img {
+  border-radius: 50%;
+  background: #fff;
+}
+
+.online-dot {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  width: 14px;
+  height: 14px;
+  background: #4caf50;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.profile-name {
+  margin-top: 1.2rem;
+  font-weight: 700;
+  color: #2b2b2b;
+  letter-spacing: 0.3px;
+}
+
+.profile-email {
+  color: #7a6f66;
+  font-size: 0.85rem;
+}
+
+.profile-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  margin: 1.2rem auto;
+  border-radius: 10px;
+}
+
+.profile-bio {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #4b4037;
+  background: #fffaf4;
+  padding: 1rem 1.2rem;
+  border-radius: 0.9rem;
+  border: 1px solid #eadfd3;
+}
+
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 1rem;
+    background-position: center;
+  }
+
+  .profile-card {
+    padding: 2.2rem 1.6rem;
   }
 }
