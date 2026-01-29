@@ -39,7 +39,6 @@
   font-size: 0.95rem;
 }
 
-/* Avatar section */
 .avatar-upload {
   margin-bottom: 1.6rem;
 }
@@ -66,7 +65,6 @@
   text-decoration: underline;
 }
 
-/* Button */
 .profile-setup-button {
   margin-top: 1.4rem;
   padding: 0.75rem !important;
@@ -87,6 +85,7 @@
     opacity: 0;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
