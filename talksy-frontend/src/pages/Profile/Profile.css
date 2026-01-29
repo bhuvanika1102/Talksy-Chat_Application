@@ -1,37 +1,85 @@
 .profile-container {
   min-height: 100vh;
-  background-color: #f0f2f5;
   display: flex;
-  justify-content: center;
   align-items: center;
+  padding: 1rem 4rem;
+  background-image:
+    radial-gradient(circle at left,
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.85)),
+    url("../../assets/images/4.jpg");
+  background-size: cover;
+  background-position: 35% center;
+  background-repeat: no-repeat;
 }
 
 .profile-card {
-  background: #fff;
-  padding: 2.5rem;
-  border-radius: 1rem;
-  text-align: center;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  max-width: 420px;
   width: 100%;
-  max-width: 400px;
+  padding: 2.6rem;
+  border-radius: 1.4rem;
+  background: rgba(255, 248, 240, 0.96);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  margin-left: auto;
+  margin-right: 6%;
+  text-align: center;
+  animation: fadeUp 0.6s ease-out;
+}
+
+.profile-card .MuiAvatar-root {
+  margin: 0 auto;
+  border: 4px solid #d6c8bb;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .profile-name {
-  margin-top: 1rem;
-  font-weight: 600;
+  margin-top: 1.2rem;
+  font-weight: 700;
+  color: #2b2b2b;
 }
 
 .profile-email {
-  color: #666;
+  color: #6b5f55;
+  font-size: 0.9rem;
   margin-bottom: 1rem;
 }
 
 .profile-bio {
-  color: #444;
+  color: #4b4037;
   font-size: 0.95rem;
+  line-height: 1.6;
+  background: #fffaf4;
+  padding: 0.9rem 1rem;
+  border-radius: 0.6rem;
+  border: 1px solid #e3d6ca;
 }
 
+/* Loader */
 .loader {
-  margin: 40vh auto;
+  margin: 45vh auto;
   display: block;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    justify-content: center;
+    padding: 1rem;
+    background-position: center;
+  }
+
+  .profile-card {
+    margin-right: 0;
+  }
 }

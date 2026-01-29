@@ -1,35 +1,52 @@
 .profile-setup-container {
   min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: #f0f2f5;
-  padding: 1rem;
+  padding: 1rem 4rem;
+  background-image:
+    radial-gradient(circle at right,
+      rgba(0, 0, 0, 0.25),
+      rgba(0, 0, 0, 0.75)),
+    url("../../assets/images/4.jpg");
+  background-size: cover;
+  background-position: 65% center;
+  background-repeat: no-repeat;
 }
 
 .profile-setup-card {
   max-width: 450px;
   width: 100%;
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.15);
+  padding: 2.4rem;
+  border-radius: 1.3rem;
+  background: rgba(255, 248, 240, 0.96);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
+  margin-left: 6%;
+  animation: slideFade 0.6s ease-out;
   text-align: center;
 }
 
 .profile-setup-title {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  margin-bottom: 0.3rem;
+  color: #2b2b2b;
 }
 
 .profile-setup-subtitle {
-  color: #555;
-  margin-bottom: 1.5rem;
+  color: #6b5f55;
+  margin-bottom: 1.6rem;
+  font-size: 0.95rem;
 }
 
+/* Avatar section */
 .avatar-upload {
-  margin-bottom: 1rem;
-  position: relative;
+  margin-bottom: 1.6rem;
+}
+
+.avatar-upload .MuiAvatar-root {
+  border: 3px solid #d6c8bb;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 .avatar-input {
@@ -37,18 +54,53 @@
 }
 
 .avatar-label {
-  display: block;
-  margin-top: 0.5rem;
-  color: #1976d2;
+  display: inline-block;
+  margin-top: 0.6rem;
+  color: #8b5e3c;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
+.avatar-label:hover {
+  text-decoration: underline;
+}
+
+/* Button */
 .profile-setup-button {
-  margin-top: 1rem;
-  background-color: #1976d2;
+  margin-top: 1.4rem;
+  padding: 0.75rem !important;
+  background: linear-gradient(135deg, #9c6e95, #856550) !important;
+  border-radius: 0.6rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .profile-setup-button:hover {
-  background-color: #115293;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(139, 94, 60, 0.5);
+}
+
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-setup-container {
+    justify-content: center;
+    padding: 1rem;
+    background-position: center;
+  }
+
+  .profile-setup-card {
+    margin-left: 0;
+  }
 }
