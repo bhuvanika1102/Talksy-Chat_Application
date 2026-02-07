@@ -1,0 +1,11 @@
+.home-container {
+    padding: 12px;
+    padding-bottom: 80px; 
+  }
+  
+  .empty-feed {
+    text-align: center;
+    color: #777;
+    margin-top: 40px;
+  }
+  

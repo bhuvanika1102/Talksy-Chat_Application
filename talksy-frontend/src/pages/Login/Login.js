@@ -4,17 +4,19 @@ import TextInput from "../../components/TextInput";
 import { loginUser } from "../../services/auth.service";
 import { toast } from "react-toastify";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     try {
       await loginUser(form);
-      toast.success("Login successful!");
+      navigate("/profile");
     } catch (err) {
       toast.error("Login failed! Check your credentials.");
     }
